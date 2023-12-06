@@ -71,7 +71,7 @@ const addProductToCart = (user, product_id, quantity) => {
     fetch('http://localhost:8080/api/sessions/current', {
         method: 'GET',
         headers: {
-            'Content-Type': 'application/json',
+            /* 'Content-Type': 'application/json', */
             // Agrega cualquier otra cabecera que puedas necesitar, como token de autenticación, etc.
         },
     })
@@ -82,7 +82,7 @@ const addProductToCart = (user, product_id, quantity) => {
             }
 
             // Parsea la respuesta JSON
-            /* return response.json(); */
+            return response.json();
         })
         .then(async data => {
             let cart = {}
