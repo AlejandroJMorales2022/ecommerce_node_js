@@ -78,11 +78,11 @@ const addProductToCart = (user, product_id, quantity) => {
         .then(response => {
             // Verifica si la respuesta es exitosa (código de estado 200-299)
             if (!response.ok) {
-                throw new Error(`Error en la solicitud: ${response.status}`);
+                /* throw new Error(`Error en la solicitud: ${response.status}`); */
             }
 
             // Parsea la respuesta JSON
-            return response.json();
+            /* return response.json(); */
         })
         .then(async data => {
             let cart = {}
@@ -90,19 +90,19 @@ const addProductToCart = (user, product_id, quantity) => {
             /* console.log('DATA '+ JSON.stringify(data,null,2))
             console.log(data.payload._id) */
             if (!data.payload.cart?._id) {
-                console.log("el usuario no tiene Cart asociado")
+                /* console.log("el usuario no tiene Cart asociado") */
 
                 //agregar un Cart asociado al User (primero dar de alta un cart, y luego guardar en el user el id del nuevo cart)
                 const resp = await createCart(data.payload._id)
                 cart = resp.payload;
                 //si el carrito se creo Ok,  agregar el producto
-                console.log('Respuesta de createCart:' + JSON.stringify(resp, null, 2))
+                /* console.log('Respuesta de createCart:' + JSON.stringify(resp, null, 2)) */
             } else {
                 //cargar en el carrito asociado el producto y la cantidad (buscar en Cart si el producto ya esta cargado)
-                console.log('Cart Asociado ' + JSON.stringify(data.payload.cart, null, 2))
+                /* console.log('Cart Asociado ' + JSON.stringify(data.payload.cart, null, 2)) */
                 cart = data.payload.cart
             }
-            console.log('Datos de la sesión actual:', data);
+            /* console.log('Datos de la sesión actual:', data); */
             // Agregar el producto al carrito
             await addProduct(cart._id, product_id, quantity);
             window.location.href = `/`;

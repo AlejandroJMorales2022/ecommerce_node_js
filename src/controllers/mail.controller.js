@@ -21,7 +21,7 @@ const mailSender = async (req, res) => {
     }
 
 
-    sgMail.setApiKey('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');
+    sgMail.setApiKey('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');
   /*  sgMail.setApiKey(SG_MAIL_KEY);
     console.log(SG_MAIL_KEY) */
     const body = {
@@ -60,7 +60,7 @@ const mailSender = async (req, res) => {
 
 const notifyPremium = async (email, product) => {
     
-    sgMail.setApiKey('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');
+    sgMail.setApiKey('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');
   /*  sgMail.setApiKey(SG_MAIL_KEY);
     console.log(SG_MAIL_KEY) */
     const body = {
@@ -84,7 +84,7 @@ const notifyPremium = async (email, product) => {
 
 const notifyDeletedUserAccount = async (email) => {
     
-    sgMail.setApiKey('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');
+    sgMail.setApiKey('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');
   /*  sgMail.setApiKey(SG_MAIL_KEY);
     console.log(SG_MAIL_KEY) */
     const body = {
