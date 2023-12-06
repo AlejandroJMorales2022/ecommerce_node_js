@@ -367,7 +367,7 @@ router.get('/users', async (req, res, next) => {
         realtimeProducts: true,
         adminView: false,
         style: 'style',
-        js: 'realtimeProducts',
+        js: 'realtimeproducts',
         title: 'Usuarios Registrados',
         user: user ? {
             ...user,
