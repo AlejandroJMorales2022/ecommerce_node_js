@@ -14,7 +14,8 @@ const initializePassport = require('./config/passport.config');
     const program = new Command();
     program.option('-e, --env <env>', 'Entorno de Ejecucion', 'development');
     program.parse();
-
+    const cors = require("cors");
+    
     //destructuro la variable env de program.option() que contiene Entorno de Desarrollo en el que trabajare
     const { env } = program.opts();
     const path = require('path');
@@ -77,7 +78,8 @@ const initializePassport = require('./config/passport.config');
         });
 
         const app = express();
-
+        
+        app.use(cors());
         //le decimos a expres que ejecute el middleware para Documentacion de API
         app.use('/apidocs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs));
 
