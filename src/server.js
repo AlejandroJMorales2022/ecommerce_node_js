@@ -81,7 +81,7 @@ const initializePassport = require('./config/passport.config');
         const app = express();
         
         app.use(cors());
-        app.use(bodyParser.json)
+        /* app.use(bodyParser.json) */
         //le decimos a expres que ejecute el middleware para Documentacion de API
         app.use('/apidocs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs));
 
