@@ -1,8 +1,11 @@
 
+
+
 const sendEmail = async ()=>{
+    const base_url='https://ecommercenodejs-production.up.railway.app'
     
         try {
-            const response = await fetch('http://localhost:8080/api/notifications/mail', {
+            const response = await fetch(`${url_base}/api/notifications/mail`, {
                 method: 'GET',
             });
             const data = await response.json();
