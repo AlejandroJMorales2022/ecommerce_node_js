@@ -1,6 +1,6 @@
 //js usado por las plantilla sde handlebars
 
-
+const base_url='https://ecommercenodejs-production.up.railway.app'
 const socket = io(); //levantamos socket del lado del cliente
 
 
@@ -21,7 +21,7 @@ const addProduct = async (cart, id_product, quantity) => {
         //verificar si el rpoducto exsite,
         //si existe, modificar la cantidad,
         //si no existe agregarlo tal cual viene
-        const response = await fetch(`http://localhost:8080/api/carts/${cart}/product/${id_product}`, {  
+        const response = await fetch(`${base_url}/api/carts/${cart}/product/${id_product}`, {  
         method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const addProduct = async (cart, id_product, quantity) => {
 
 const createCart = async (user_id) => {
     try {
-        const response = await fetch('http://localhost:8080/api/carts/', {
+        const response = await fetch(`${base_url}/api/carts/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const createCart = async (user_id) => {
 
 
 const addProductToCart = (user, product_id, quantity) => {
-    fetch('http://localhost:8080/api/sessions/current', {
+    fetch(`${base_url}/api/sessions/current`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ const addProductToCart = (user, product_id, quantity) => {
 
 const createTicket = (cartId) => {
     //Generar Ticket con los Productos del Carrito de Compras
-    fetch(`http://localhost:8080/api/carts/${cartId}/purchase`, {
+    fetch(`${base_url}/api/carts/${cartId}/purchase`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -163,7 +163,7 @@ const deleteUser = (user_id) => {
     }).then((result) => {
         if (result.isConfirmed) {
             //Borrando el Usuario
-            fetch(`http://localhost:8080/api/users/${user_id}`, {
+            fetch(`${base_url}/api/users/${user_id}`, {
                 method: 'DELETE',
                 headers: {
                     /* 'Content-Type': 'application/json', */
@@ -213,7 +213,7 @@ const deleteUsersWithoutActivity = () => {
     }).then((result) => {
         if (result.isConfirmed) {
             // Borrando el Usuario
-            fetch(`http://localhost:8080/api/users`, {
+            fetch(`${base_url}/api/users`, {
                 method: 'DELETE',
                 headers: {
                     // Agrega cualquier otra cabecera que puedas necesitar, como token de autenticación, etc.
@@ -253,7 +253,7 @@ const deleteUsersWithoutActivity = () => {
 
 const changeRoleUser = (user_id) => {
     //Generar Ticket con los Productos del Carrito de Compras
-    fetch(`http://localhost:8080/api/users/premium/${user_id}`, {
+    fetch(`${base_url}/api/users/premium/${user_id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
