@@ -4,7 +4,7 @@ const sgMail = require('@sendgrid/mail');
 const { SG_MAIL_KEY } = require('../config/config');
 const { generateToken } = require('../utils/create.token');
 const tokenManager = require('../../src/dao/managers/tokensemails/tokens.emails.db.manager');
-
+const base_url='https://ecommercenodejs-production.up.railway.app'
 
 const mailSender = async (req, res) => {
     const { email } = req.user
@@ -36,7 +36,7 @@ const mailSender = async (req, res) => {
                 </span>
                 <div class="text-center d-flex">
                     <button class="btn btn-secundary mt-4" style="background-color: grey; height: 40px; width: 120px; margin-top: 50px; padding:0;">
-                    <a  style="display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; height: 100%;" href="http://localhost:8080/restartpass?token=${newToken}&email=${email}" target="_blank">Restablecer Contraseña</a>
+                    <a  style="display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; height: 100%;" href="${base_url}/restartpass?token=${newToken}&email=${email}" target="_blank">Restablecer Contraseña</a>
                     </button>
                 </div>`
         ,
