@@ -1,7 +1,7 @@
 /* const mailSender = require('../services/mail.sender.service'); */
 const sgMail = require('@sendgrid/mail');
 // importo config de variables de entorno
-const {SG_MAIL_KEY} = require('../config/config');
+const { SG_MAIL_KEY } = require('../config/config');
 const { generateToken } = require('../utils/create.token');
 const tokenManager = require('../../src/dao/managers/tokensemails/tokens.emails.db.manager');
 
@@ -21,9 +21,9 @@ const mailSender = async (req, res) => {
     }
 
 
-    sgMail.setApiKey('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');
-  /*  sgMail.setApiKey(SG_MAIL_KEY);
-    console.log(SG_MAIL_KEY) */
+    /* sgMail.setApiKey('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'); */
+    sgMail.setApiKey(SG_MAIL_KEY);
+    /* console.log(SG_MAIL_KEY) */
     const body = {
         to: email,
         from: "info@cabanasecosdelvalle.com.ar",
@@ -59,15 +59,15 @@ const mailSender = async (req, res) => {
 
 
 const notifyPremium = async (email, product) => {
-    
-    sgMail.setApiKey('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');
-  /*  sgMail.setApiKey(SG_MAIL_KEY);
-    console.log(SG_MAIL_KEY) */
+
+    /* sgMail.setApiKey('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'); */
+    sgMail.setApiKey(SG_MAIL_KEY);
+    /* console.log(SG_MAIL_KEY) */
     const body = {
         to: email,
         from: "info@cabanasecosdelvalle.com.ar",
         subject: "Notificación de Eliminación de un Producto",
-        text:  `Notificamos que el producto con Id ${product} ha sido Eliminado de la Base de Datos`,
+        text: `Notificamos que el producto con Id ${product} ha sido Eliminado de la Base de Datos`,
         html: `<div>Notificamos que el producto con Id ${product} ha sido Eliminado de la Base de Datos del Ecommerce</div>`
         ,
     };
@@ -83,15 +83,15 @@ const notifyPremium = async (email, product) => {
 }
 
 const notifyDeletedUserAccount = async (email) => {
-    
-    sgMail.setApiKey('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');
-  /*  sgMail.setApiKey(SG_MAIL_KEY);
-    console.log(SG_MAIL_KEY) */
+
+    /* sgMail.setApiKey('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'); */
+    sgMail.setApiKey(SG_MAIL_KEY);
+    /* console.log(SG_MAIL_KEY) */
     const body = {
         to: email,
         from: "info@cabanasecosdelvalle.com.ar",
         subject: "Notificación de Baja de Cuenta",
-        text:  `Notificamos de Baja de Cuenta`,
+        text: `Notificamos de Baja de Cuenta`,
         html: `<div>Notificamos que su Cuenta de usuario ha sido dada de Baja de nuestra plataforma de Ecommerce por Inactividad</div>`
         ,
     };
